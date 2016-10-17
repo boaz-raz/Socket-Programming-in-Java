@@ -11,8 +11,10 @@ public class Server {
 
     DataInputStream input;
 
+    DataOutputStream output;
+
     // use DataInputStream to receive input from the client
-    Socket clientSocket = null;
+    Socket serviceSocket = null;
 
 
     public void openServerSocket(){
@@ -47,6 +49,26 @@ public class Server {
         }
         catch (IOException e) {
             System.out.println(e);
+        }
+    }
+
+    public void dataOutputStream(){
+        try {
+            output = new DataOutputStream(serviceSocket.getOutputStream( ));
+        }
+        catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void closeSocket(){
+        try {
+            MyService.close();
+            MyService.close();
+            serviceSocket.close();
+            MyService.close();
+        }
+        catch (IOException e) {
         }
     }
 

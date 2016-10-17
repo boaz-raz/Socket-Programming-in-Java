@@ -43,4 +43,14 @@ public class Client {
         }
     }
 
+    public void closeSocket(){
+        try {
+            MyClient.close();
+            MyClient.close();
+            MyClient.close();
+        }
+        catch (IOException e) {
+        }
+    }
+
 }
